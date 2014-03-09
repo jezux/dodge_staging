@@ -43,7 +43,7 @@
                     <p-accounts>
                     <xsl:for-each select="./data/project-contact-information/title-code/project-contact">
                     <p-account-details>
-                    <p-acc-role></p-acc-role>
+                    <p-acc-role> <xsl:value-of select="./contact-information/s-contact-role"/></p-acc-role>
                     </p-account-details>
                     </xsl:for-each>
                     </p-accounts>
