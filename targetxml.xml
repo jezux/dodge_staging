@@ -1,38 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <reports>
-<dodge-report>
-<project-temp>
-<p-id/>
-<p-ver/>
-<p-url/>
-<p-title/>
-<p-addr-line1/>
-<p-addr-line2/>
-<p-county-name/>
-<p-city-name/>
-<p-state-id/>
-<p-zip-code5/>
-<p-country-id/>
-<p-status-text/>
-<p-valuation/>//Need to decide the value based on low/high
-<p-target-biddate/>
-<p-type/>
-<p-stage/>
-<p-work-type/>
-<p-additonal-details>
-<nbr-of-bldg/>
-<nbr-of-story-ag/>
-<nbr-of-story-bg/>
-<framing/>
-<square-footage/>
-<square-footage-uom/>
-<p-text/>
-</p-additonal-details>
-<p-notes>
-<proj-notes/>//decide if repeats
-</p-notes>
-<p-accounts>
-<p-account-details/>//need to decide if repeats
-</p-accounts>
-</project-temp>
-</dodge-report>
-</reports>
+       <dodge-report>
+              <project-temp>//Need to decide the value based on low/high
+                     <p-id></p-id>
+                     <p-ver></p-ver>
+                     <p-url></p-url>
+                     <p-title></p-title>
+                     <p-addr-line1></p-addr-line1>
+                     <p-addr-line2></p-addr-line2>
+                     <p-county-name></p-county-name>
+                     <p-city-name></p-city-name>
+                     <p-state-id></p-state-id>
+                     <p-zip-code5></p-zip-code5>
+                     <p-country-id></p-country-id>
+                     <p-status-text></p-status-text>
+                     <p-valuation></p-valuation>
+                     <p-target-biddate></p-target-biddate>
+                     <p-type></p-type>
+                     <p-stage></p-stage>
+                     <p-work-type></p-work-type>
+                     <p-additonal-details>
+                            <nbr-of-bldg></nbr-of-bldg>
+                            <nbr-of-story-ag></nbr-of-story-ag>
+                            <nbr-of-story-bg></nbr-of-story-bg>
+                            <framing></framing>
+                            <square-footage></square-footage>
+                            <square-footage-uom></square-footage-uom>
+                            <p-text></p-text>
+                        </p-additonal-details>
+                     <p-notes>//decide if repeats
+                            <proj-notes></proj-notes>
+                        </p-notes>
+                     <p-accounts>
+                            <p-account-details>//need to decide if repeats
+                                   <p-acc-role></p-acc-role>
+                                   <p-acc-name></p-acc-name>
+                                   <p-acc-contact></p-acc-contact>
+                                   <p-acc-addr1></p-acc-addr1>
+                                   <p-acc-addr2></p-acc-addr2>
+                                   <p-acc-county></p-acc-county>
+                                   <p-acc-state></p-acc-state>
+                                   <p-acc-country></p-acc-country>
+                                   <p-acc-zip></p-acc-zip>
+                                   <p-acc-phone></p-acc-phone>
+                                   <p-acc-fax></p-acc-fax>
+                                   <p-acc-email></p-acc-email>
+                                   <p-acc-url></p-acc-url>
+                               </p-account-details>
+                        </p-accounts>
+                 </project-temp>
+          </dodge-report>
+   </reports>
