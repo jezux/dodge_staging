@@ -22,6 +22,15 @@
                     <p-addr-line2>
                         <xsl:value-of select="./data/p-location/project-location/title-code/p-addr-line/p-addr-line2"/>
                     </p-addr-line2>
+                    <p-additonal-details>
+                    <nbr-of-bldg>
+                    <xsl:value-of select="./data/details/structural-data/title-code/nbr-of-bldg"/>
+                    </nbr-of-bldg>
+                    <nbr-of-story-ag>
+                     <xsl:value-of select="./data/details/structural-data/title-code/nbr-of-story-ag"/>
+                     </nbr-of-story-ag>
+                    
+                    </p-additonal-details>
                 </project-temp>
             </xsl:for-each>
         </reports>
