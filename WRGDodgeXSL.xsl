@@ -30,14 +30,15 @@
                             <xsl:value-of select="./data/details/structural-data/title-code/nbr-of-story-ag"/>
                         </nbr-of-story-ag>
                         <p-text>
+                            <xsl:comment>Concatenate Project Text</xsl:comment>
                             <xsl:value-of select="./data/details/std-includes/title-code"/>
                         </p-text>
                     </p-additonal-details>
                     <p-notes>
-                    <proj-notes>
-                    <xsl:value-of select="./data/project-notes/proj-notes/title-code"/>
-                    
-                    </proj-notes>
+                        <proj-notes>
+                            <xsl:comment>Concatenate Project Notes</xsl:comment>
+                            <xsl:value-of select="./data/project-notes/proj-notes/title-code"/>
+                        </proj-notes>
                     </p-notes>
                 </project-temp>
             </xsl:for-each>
