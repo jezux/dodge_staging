@@ -40,6 +40,13 @@
                             <xsl:value-of select="./data/project-notes/proj-notes/title-code"/>
                         </proj-notes>
                     </p-notes>
+                    <p-accounts>
+                    <xsl:for-each select="./data/project-contact-information/title-code/project-contact">
+                    <p-account-details>
+                    <p-acc-role></p-acc-role>
+                    </p-account-details>
+                    </xsl:for-each>
+                    </p-accounts>
                 </project-temp>
             </xsl:for-each>
         </reports>
