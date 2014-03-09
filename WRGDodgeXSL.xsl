@@ -23,14 +23,22 @@
                         <xsl:value-of select="./data/p-location/project-location/title-code/p-addr-line/p-addr-line2"/>
                     </p-addr-line2>
                     <p-additonal-details>
-                    <nbr-of-bldg>
-                    <xsl:value-of select="./data/details/structural-data/title-code/nbr-of-bldg"/>
-                    </nbr-of-bldg>
-                    <nbr-of-story-ag>
-                     <xsl:value-of select="./data/details/structural-data/title-code/nbr-of-story-ag"/>
-                     </nbr-of-story-ag>
-                    
+                        <nbr-of-bldg>
+                            <xsl:value-of select="./data/details/structural-data/title-code/nbr-of-bldg"/>
+                        </nbr-of-bldg>
+                        <nbr-of-story-ag>
+                            <xsl:value-of select="./data/details/structural-data/title-code/nbr-of-story-ag"/>
+                        </nbr-of-story-ag>
+                        <p-text>
+                            <xsl:value-of select="./data/details/std-includes/title-code"/>
+                        </p-text>
                     </p-additonal-details>
+                    <p-notes>
+                    <proj-notes>
+                    <xsl:value-of select="./data/project-notes/proj-notes/title-code"/>
+                    
+                    </proj-notes>
+                    </p-notes>
                 </project-temp>
             </xsl:for-each>
         </reports>
