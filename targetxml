@@ -1,0 +1,38 @@
+<reports>
+<dodge-report>
+<project>
+<p-id/>
+<p-ver/>
+<p-url/>
+<p-title/>
+<p-addr-line1/>
+<p-addr-line2/>
+<p-county-name/>
+<p-city-name/>
+<p-state-id/>
+<p-zip-code5/>
+<p-country-id/>
+<p-status-text/>
+<p-valuation/>//Need to decide the value based on low/high
+<p-target-biddate/>
+<p-type/>
+<p-stage/>
+<p-work-type/>
+<p-additonal-details>
+<nbr-of-bldg/>
+<nbr-of-story-ag/>
+<nbr-of-story-bg/>
+<framing/>
+<square-footage/>
+<square-footage-uom/>
+<p-text/>
+</p-additonal-details>
+<p-notes>
+<proj-notes/>//decide if repeats
+</p-notes>
+<p-accounts>
+<p-account-details/>//need to decide if repeats
+</p-accounts>
+</project>
+</dodge-report>
+</reports>
