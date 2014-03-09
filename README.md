@@ -1,4 +1,11 @@
 dodge_staging
 =============
+used to hold dodge staging program file
 
-dodge staging program
+Possible files
+
+-->WRGDodgeXML
+-->WRGDodgeXSL
+-->SSIS Package
+-->SQL DB Structure
+
