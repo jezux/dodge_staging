@@ -19,7 +19,7 @@
                      <p-type></p-type>
                      <p-stage></p-stage>
                      <p-work-type></p-work-type>
-                     <p-additonal-details>
+                   
                             <nbr-of-bldg></nbr-of-bldg>
                             <nbr-of-story-ag></nbr-of-story-ag>
                             <nbr-of-story-bg></nbr-of-story-bg>
@@ -27,10 +27,10 @@
                             <square-footage></square-footage>
                             <square-footage-uom></square-footage-uom>
                             <p-text></p-text>
-                        </p-additonal-details>
-                     <p-notes>//decide if repeats
+                        
+                    
                             <proj-notes></proj-notes>
-                        </p-notes>
+                      
                      <p-accounts>
                             <p-account-details>//need to decide if repeats
                                    <p-acc-role></p-acc-role>
