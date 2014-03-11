@@ -1,0 +1,22 @@
+/*Holds Project Details*/
+CREATE TABLE [Project-Temp] (
+    [project-temp_Id] NUMERIC (20, 0),
+    [p-id] NUMERIC (20, 0) NOT NULL PRIMARY KEY,
+    [p-ver] TINYINT,
+    [p-url] NVARCHAR(255),
+    [p-title] NVARCHAR(255),
+    [p-addr-line1] NVARCHAR(255),
+    [p-addr-line2] NVARCHAR(255),
+    [nbr-of-bldg] NVARCHAR(255),
+    [nbr-of-story-ag] NVARCHAR(255),
+    [p-text] NVARCHAR(MAX),
+    [proj-notes] NVARCHAR(MAX)
+)
+
+/*Holds related Accounts details*/
+
+CREATE TABLE [p-accounts] (
+    [p-acc-role] NVARCHAR(255),
+    [p-acc-name] NVARCHAR(255),
+    [p-accounts_Id] NUMERIC (20, 0) NOT NULL PRIMARY KEY
+)
