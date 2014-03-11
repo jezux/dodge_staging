@@ -22,8 +22,7 @@
                     <p-addr-line2>
                         <xsl:value-of select="./data/p-location/project-location/title-code/p-addr-line/p-addr-line2"/>
                     </p-addr-line2>
-                    <p-additonal-details>
-                        <nbr-of-bldg>
+                    <nbr-of-bldg>
                             <xsl:value-of select="./data/details/structural-data/title-code/nbr-of-bldg"/>
                         </nbr-of-bldg>
                         <nbr-of-story-ag>
@@ -33,13 +32,11 @@
                             <xsl:comment>Concatenate Project Text</xsl:comment>
                             <xsl:value-of select="./data/details/std-includes/title-code"/>
                         </p-text>
-                    </p-additonal-details>
-                    <p-notes>
                         <proj-notes>
                             <xsl:comment>Concatenate Project Notes</xsl:comment>
                             <xsl:value-of select="./data/project-notes/proj-notes/title-code"/>
                         </proj-notes>
-                    </p-notes>
+                    
                     <p-accounts>
                     <xsl:for-each select="./data/project-contact-information/title-code/project-contact">
                     <p-account-details>
