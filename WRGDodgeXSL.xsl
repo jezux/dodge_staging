@@ -43,8 +43,20 @@
                     <xsl:for-each select="./data/project-contact-information/title-code/project-contact">
                     <p-account-details>
                     <p-id> <xsl:value-of select="$dodge_Id"/></p-id>
+                    <p-acc-id><xsl:value-of select="./contact-information/ckms-site-id"/></p-acc-id>
                     <p-acc-role> <xsl:value-of select="./contact-information/s-contact-role"/></p-acc-role>
                     <p-acc-name><xsl:value-of select="./contact-information/firm-name"/></p-acc-name>
+                    <p-acc-contact><xsl:value-of select="./contact-information/contact-name"/></p-acc-contact>
+                    <p-acc-addr1><xsl:value-of select="./contact-information/c-addr-line/c-addr-line1"/></p-acc-addr1>
+                    <p-acc-addr2><xsl:value-of select="./contact-information/c-addr-line/c-addr-line2"/></p-acc-addr2>
+                    <p-acc-county><xsl:value-of select="./contact-information/c-county-name"/></p-acc-county>
+                    <p-acc-state><xsl:value-of select="./contact-information/c-state-id"/></p-acc-state>
+                    <p-acc-country><xsl:value-of select="./contact-information/c-country-id"/></p-acc-country>
+                    <p-acc-zip><xsl:value-of select="./contact-information/c-zip-code5"/></p-acc-zip>
+                    <p-acc-phone><xsl:value-of select="./contact-information/area-code"/><xsl:value-of select="./contact-information/phone-nbr"/></p-acc-phone>
+                    <p-acc-fax><xsl:value-of select="./contact-information/fax-area-code"/><xsl:value-of select="./contact-information/fax-nbr"/></p-acc-fax>
+                    <p-acc-email><xsl:value-of select="./contact-information/email-id"/></p-acc-email>
+                    <p-acc-url><xsl:value-of select="./contact-information/www-url"/></p-acc-url>            
                     </p-account-details>
                     </xsl:for-each>
                     </p-accounts>
