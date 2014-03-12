@@ -33,6 +33,8 @@
                       
                      <p-accounts>
                             <p-account-details>//need to decide if repeats
+                                   <p-id></p-id>//refers to Dodge Id
+                                   <p-acc-id></p-acc-id>//refers to Dodge Account Id
                                    <p-acc-role></p-acc-role>
                                    <p-acc-name></p-acc-name>
                                    <p-acc-contact></p-acc-contact>
