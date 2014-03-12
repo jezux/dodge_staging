@@ -3,7 +3,9 @@
     <xsl:template match="/">
         <reports>
             <xsl:for-each select="reports/dodge-report">
+                <xsl:variable name="dodge_Id" select="./summary/dr-nbr"/>
                 <project-temp>
+                    
                     <p-id>
                         <xsl:value-of select="./summary/dr-nbr"/>
                     </p-id>
@@ -40,6 +42,7 @@
                     <p-accounts>
                     <xsl:for-each select="./data/project-contact-information/title-code/project-contact">
                     <p-account-details>
+                    <p-id> <xsl:value-of select="$dodge_Id"/></p-id>
                     <p-acc-role> <xsl:value-of select="./contact-information/s-contact-role"/></p-acc-role>
                     <p-acc-name><xsl:value-of select="./contact-information/firm-name"/></p-acc-name>
                     </p-account-details>
