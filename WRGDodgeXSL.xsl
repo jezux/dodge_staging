@@ -15,6 +15,12 @@
                     <p-url>
                         <xsl:value-of select="./summary/cn-project-url"/>
                     </p-url>
+                     <p-first-publish-date>
+                   <xsl:value-of select="./summary/first-publish-date"/>
+                   </p-first-publish-date>
+                   <p-publish-date>
+                   <xsl:value-of select="./summary/publish-date"/>
+                   </p-publish-date>
                     <p-title>
                         <xsl:value-of select="./data/proj-title/title-code/title"/>
                     </p-title>
@@ -24,6 +30,48 @@
                     <p-addr-line2>
                         <xsl:value-of select="./data/p-location/project-location/title-code/p-addr-line/p-addr-line2"/>
                     </p-addr-line2>
+                    <p-county-name>
+                        <xsl:value-of select="./data/p-location/project-location/title-code/p-county-name"/>
+                    </p-county-name>
+                     <p-city-name>
+                        <xsl:value-of select="./data/p-location/project-location/title-code/p-city-name"/>
+                    </p-city-name>
+                    <p-state-id>
+                        <xsl:value-of select="./data/p-location/project-location/title-code/p-state-id"/>
+                    </p-state-id>
+                    <p-zip-code5>
+                        <xsl:value-of select="./data/p-location/project-location/title-code/p-zip-code5"/>
+                    </p-zip-code5>
+                   
+                    <p-country-id>
+                        <xsl:value-of select="./data/p-location/project-location/title-code/p-country-id"/>
+                    </p-country-id>
+                
+                <p-type>
+                <xsl:value-of select="./data/project-type/title-code" separator=","/>
+                </p-type>
+                
+                   <p-action-stage>
+                   <xsl:value-of select="./data/project-stage/title-code/stage-desc"/>
+                   </p-action-stage>
+                    <p-delivery-system>
+                   <xsl:value-of select="./data/additional-details/title-code/proj-dlvry-sys"/>
+                   </p-delivery-system>
+                   <p-bid-date>
+                   <xsl:if test="./data/bid-information/title-code/bid-date != ''">
+                   <xsl:value-of select="./data/bid-information/title-code/bid-date"/> <xsl:text> </xsl:text><xsl:value-of select="./data/bid-information/title-code/bid-time"/><xsl:text> </xsl:text><xsl:value-of select="./data/bid-information/title-code/bid-zone"/>
+                   </xsl:if>
+                   </p-bid-date>
+                   <p-owner-class>
+                   <xsl:value-of select="./data/additional-details/title-code/owner-class"/>
+                   </p-owner-class>
+                  
+                   <p-prj-status>
+                   <xsl:value-of select="./data/status/project-status/title-code/status-text"/>
+                   </p-prj-status>
+                   <p-prj-status-deliver-system>
+                    <xsl:value-of select="./data/status/title-code/status-proj-dlvry-sys"/>
+                   </p-prj-status-deliver-system>
                     <nbr-of-bldg>
                             <xsl:value-of select="./data/details/structural-data/title-code/nbr-of-bldg"/>
                         </nbr-of-bldg>
