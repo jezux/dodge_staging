@@ -16,11 +16,20 @@
             <xsl:value-of select="./summary/cn-project-url" />
           </p-url>
           <p-first-publish-date>
-            <xsl:value-of select="./summary/first-publish-date" />
+          <xsl:variable name="fst_pub_dt" select="./summary/first-publish-date" />
+          <xsl:value-of select="concat(substring($fst_pub_dt,1,4),'-',substring($fst_pub_dt,5,2),'-',substring($fst_pub_dt,7,2))" />
           </p-first-publish-date>
           <p-publish-date>
-            <xsl:value-of select="./summary/publish-date" />
+          <xsl:variable name="pub_dt" select="./summary/publish-date" />
+          <xsl:value-of select="concat(substring($pub_dt,1,4),'-',substring($pub_dt,5,2),'-',substring($pub_dt,7,2))" />
           </p-publish-date>
+          <p-prior-publish-date>
+          
+          <xsl:variable name="prior_pub_dt" select="./summary/prior-publish-date" />
+          <xsl:if test="$prior_pub_dt != ''">
+          <xsl:value-of select="concat(substring($prior_pub_dt,1,4),'-',substring($prior_pub_dt,5,2),'-',substring($prior_pub_dt,7,2))" />
+          </xsl:if>
+          </p-prior-publish-date>
           <p-title>
             <xsl:value-of select="./data/proj-title/title-code/title" />
           </p-title>
