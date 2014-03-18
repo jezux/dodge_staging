@@ -102,7 +102,16 @@
           </proj-notes>
           <p-accounts>
             <xsl:for-each select="./data/project-contact-information/title-code/project-contact">
+              <xsl:variable name="Ckms_Site_Ind" select="./contact-information/ckms-process-ind" />
+              <xsl:variable name="Ckms_Cont_Ind" select="./contact-information/ckms-contact-process-ind" />
+              <xsl:variable name="Cont_Role" select="./contact-information/s-contact-role" />
+               <xsl:if test="$Ckms_Site_Ind = 'Y' and $Ckms_Cont_Ind = 'Y'">
+               <xsl:if test="$Cont_Role != 'Electrical Engineer' or $Cont_Role != 'Landscape Architect' or $Cont_Role != 'Mechanical Engineer'">
+             
               <p-account-details>
+              
+           
+              
                 <p-id>
                   <xsl:value-of select="$dodge_Id" />
                 </p-id>
@@ -150,7 +159,11 @@
                 <p-acc-url>
                   <xsl:value-of select="./contact-information/www-url" />
                 </p-acc-url>
+              
+             
               </p-account-details>
+</xsl:if>
+                </xsl:if>
             </xsl:for-each>
           </p-accounts>
         </project-temp>
