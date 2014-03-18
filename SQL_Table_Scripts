@@ -1,22 +1,52 @@
-/*Holds Project Details*/
-CREATE TABLE [Project-Temp] (
+CREATE TABLE [ACC_TEMP] (
+    [p-id] NVARCHAR(255) not null,
+    [p-acc-id] NVARCHAR(255) not null,
+    [p-acc-role] NVARCHAR(255),
+    [p-acc-role-code] INTEGER not null,
+    [p-acc-cont-id] NVARCHAR(255) not null,
+    [p-acc-name] NVARCHAR(255),
+    [p-acc-contact] NVARCHAR(255),
+    [p-acc-addr1] NVARCHAR(255),
+    [p-acc-addr2] NVARCHAR(255),
+    [p-acc-county] NVARCHAR(255),
+    [p-acc-state] NVARCHAR(255),
+    [p-acc-country] NVARCHAR(255),
+    [p-acc-zip] BIGINT,
+    [p-acc-phone] NUMERIC (20, 0),
+    [p-acc-fax] NVARCHAR(255),
+    [p-acc-email] NVARCHAR(255),
+    [p-acc-url] NVARCHAR(255),
+    [p-accounts_Id] NUMERIC (20, 0),
+CONSTRAINT pk_accID PRIMARY KEY ([p-id],[p-acc-id], [p-acc-role-code], [p-acc-cont-id])
+)
+
+
+CREATE TABLE [PROJ_TEMP] (
     [project-temp_Id] NUMERIC (20, 0),
-    [p-id] NUMERIC (20, 0) NOT NULL PRIMARY KEY,
+    [p-id] NVARCHAR(255) not null PRIMARY KEY,
     [p-ver] TINYINT,
     [p-url] NVARCHAR(255),
+    [p-first-publish-date] DATETIME,
+    [p-publish-date] DATETIME,
+    [p-prior-publish-date] NVARCHAR(255),
     [p-title] NVARCHAR(255),
     [p-addr-line1] NVARCHAR(255),
     [p-addr-line2] NVARCHAR(255),
+    [p-county-name] NVARCHAR(255),
+    [p-city-name] NVARCHAR(255),
+    [p-state-id] NVARCHAR(255),
+    [p-zip-code5] NVARCHAR(255),
+    [p-country-id] NVARCHAR(255),
+    [p-type] NVARCHAR(255),
+    [p-action-stage] NVARCHAR(255),
+    [p-delivery-system] NVARCHAR(255),
+    [p-bid-date] NVARCHAR(255),
+    [p-owner-class] NVARCHAR(255),
+    [p-prj-status] NVARCHAR(255),
+    [p-prj-status-deliver-system] NVARCHAR(255),
     [nbr-of-bldg] NVARCHAR(255),
     [nbr-of-story-ag] NVARCHAR(255),
-    [p-text] NVARCHAR(MAX),
-    [proj-notes] NVARCHAR(MAX)
-)
+    [p-text] NTEXT,
+    [proj-notes] NTEXT
 
-/*Holds related Accounts details*/
-
-CREATE TABLE [p-accounts] (
-    [p-acc-role] NVARCHAR(255),
-    [p-acc-name] NVARCHAR(255),
-    [p-accounts_Id] NUMERIC (20, 0) NOT NULL PRIMARY KEY
 )
