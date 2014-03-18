@@ -50,3 +50,62 @@ CREATE TABLE [PROJ_TEMP] (
     [proj-notes] NTEXT
 
 )
+
+
+
+
+CREATE TABLE [ACC_DETAILS] (
+    [pr-id] NVARCHAR(255) not null,
+    [pr-acc-id] NVARCHAR(255) not null,
+    [pr-acc-role] NVARCHAR(255),
+    [pr-acc-role-code] INTEGER not null,
+    [pr-acc-cont-id] NVARCHAR(255) not null,
+    [pr-acc-name] NVARCHAR(255),
+    [pr-acc-contact] NVARCHAR(255),
+    [pr-acc-addr1] NVARCHAR(255),
+    [pr-acc-addr2] NVARCHAR(255),
+    [pr-acc-county] NVARCHAR(255),
+    [pr-acc-state] NVARCHAR(255),
+    [pr-acc-country] NVARCHAR(255),
+    [pr-acc-zip] BIGINT,
+    [pr-acc-phone] NUMERIC (20, 0),
+    [pr-acc-fax] NVARCHAR(255),
+    [pr-acc-email] NVARCHAR(255),
+    [pr-acc-url] NVARCHAR(255),
+    [pr-accounts_Id] NUMERIC (20, 0),
+CONSTRAINT prk_accID PRIMARY KEY ([pr-id],[pr-acc-id], [pr-acc-role-code], [pr-acc-cont-id])
+)
+
+
+
+
+CREATE TABLE [PROJ_DETAILS] (
+    [project-temp_Id] NUMERIC (20, 0),
+    [pr-id] NVARCHAR(255) not null PRIMARY KEY,
+    [pr-ver] TINYINT,
+    [pr-url] NVARCHAR(255),
+    [pr-first-publish-date] DATETIME,
+    [pr-publish-date] DATETIME,
+    [pr-prior-publish-date] NVARCHAR(255),
+    [pr-title] NVARCHAR(255),
+    [pr-addr-line1] NVARCHAR(255),
+    [pr-addr-line2] NVARCHAR(255),
+    [pr-county-name] NVARCHAR(255),
+    [pr-city-name] NVARCHAR(255),
+    [pr-state-id] NVARCHAR(255),
+    [pr-zip-code5] NVARCHAR(255),
+    [pr-country-id] NVARCHAR(255),
+    [pr-type] NVARCHAR(255),
+    [pr-action-stage] NVARCHAR(255),
+    [pr-delivery-system] NVARCHAR(255),
+    [pr-bid-date] NVARCHAR(255),
+    [pr-owner-class] NVARCHAR(255),
+    [pr-prj-status] NVARCHAR(255),
+    [pr-prj-status-deliver-system] NVARCHAR(255),
+    [nbr-of-bldg] NVARCHAR(255),
+    [nbr-of-story-ag] NVARCHAR(255),
+    [pr-text] NTEXT,
+    [prroj-notes] NTEXT
+
+)
+
