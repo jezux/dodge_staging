@@ -1,0 +1,192 @@
+GO
+
+/*update ROW-STAT statement*/
+update [PROJ_TEMP] set [ROW-STAT]='Update' from [PROJ_TEMP]
+INNER JOIN [PROJ_DETAILS] on [pr-id]=[p-id] and [p-ver]<>[pr-ver];
+GO
+
+/*Insert ROW-STAT statement*/
+update [PROJ_TEMP] set [ROW-STAT]='Insert' where [p-id] not in
+(
+select [pr-id] from [PROJ_DETAILS]
+);
+
+GO
+/*Cascade project ROW-STAT value to Account ROW-STAT*/
+update [ACC_TEMP] set [ROW-STAT]= T2.[ROW-STAT] from [ACC_TEMP] T1
+INNER JOIN [PROJ_TEMP] T2 on T1.[p-id]=T2.[p-id];
+
+GO
+
+/*Insert ROW-STAT for Accounts which are wrongly flagged as update--need to work*/
+update [ACC_TEMP] set [ROW-STAT]= 'Insert' where [ROW-STAT]='Update' and [p-id]+[p-acc-id]+[p-acc-role-code]+[p-acc-cont-id] not in
+(select [pr-id]+[pr-acc-id]+[pr-acc-role-code]+[pr-acc-cont-id] from [ACC_DETAILS]);
+
+GO
+
+
+/*Insert Dodge Project*/
+
+
+INSERT INTO [PROJ_DETAILS]([pr-id],
+[pr-ver],
+[pr-url],
+[pr-first-publish-date],
+[pr-publish-date],
+[pr-prior-publish-date],
+[pr-title],
+[pr-addr-line1],
+[pr-addr-line2],
+[pr-county-name],
+[pr-city-name],
+[pr-state-id],
+[pr-zip-code5],
+[pr-country-id],
+[pr-type],
+[pr-action-stage],
+[pr-delivery-system],
+[pr-bid-date],
+[pr-owner-class],
+[pr-prj-status],
+[pr-prj-status-deliver-system],
+[nbr-of-bldg],
+[nbr-of-story-ag],
+[pr-text],
+[prroj-notes],
+CREATED,
+[LAST-UPDATED])
+select [p-id],
+[p-ver],
+[p-url],
+[p-first-publish-date],
+[p-publish-date],
+[p-prior-publish-date],
+[p-title],
+[p-addr-line1],
+[p-addr-line2],
+[p-county-name],
+[p-city-name],
+[p-state-id],
+[p-zip-code5],
+[p-country-id],
+[p-type],
+[p-action-stage],
+[p-delivery-system],
+[p-bid-date],
+[p-owner-class],
+[p-prj-status],
+[p-prj-status-deliver-system],
+[nbr-of-bldg],
+[nbr-of-story-ag],
+[p-text],
+[proj-notes],
+getdate(),
+getdate() from [PROJ_TEMP] where [ROW-STAT]='Insert';
+
+GO
+
+/*update dodge projects*/
+
+UPDATE [PROJ_DETAILS] set 
+[pr-id]=[p-id],
+[pr-ver]=[p-ver],
+[pr-url]=[p-url],
+[pr-first-publish-date]=[p-first-publish-date],
+[pr-publish-date]=[p-publish-date],
+[pr-prior-publish-date]=[p-prior-publish-date],
+[pr-title]=[p-title],
+[pr-addr-line1]=[p-addr-line1],
+[pr-addr-line2]=[p-addr-line2],
+[pr-county-name]=[p-county-name],
+[pr-city-name]=[p-city-name],
+[pr-state-id]=[p-state-id],
+[pr-zip-code5]=[p-zip-code5],
+[pr-country-id]=[p-country-id],
+[pr-type]=[p-type],
+[pr-action-stage]=[p-action-stage],
+[pr-delivery-system]=[p-delivery-system],
+[pr-bid-date]=[p-bid-date],
+[pr-owner-class]=[p-owner-class],
+[pr-prj-status]=[p-prj-status],
+[pr-prj-status-deliver-system]=[p-prj-status-deliver-system],
+[nbr-of-bldg]=T2.[nbr-of-bldg],
+[nbr-of-story-ag]=T2.[nbr-of-story-ag],
+[pr-text]=[p-text],
+[prroj-notes]=[proj-notes],
+
+[LAST-UPDATED]=getdate()
+from [PROJ_DETAILS] T1
+INNER JOIN [PROJ_TEMP] T2 ON T2.[p-id]=T1.[pr-id] and T2.[ROW-STAT]='Update';
+
+GO
+
+/*Insert Dodge Accounts*/
+
+
+INSERT INTO [ACC_DETAILS]([pr-id],
+[pr-acc-id],
+[pr-acc-role],
+[pr-acc-role-code],
+[pr-acc-cont-id],
+[pr-acc-name],
+[pr-acc-contact],
+[pr-acc-addr1],
+[pr-acc-addr2],
+[pr-acc-county],
+[pr-acc-state],
+[pr-acc-country],
+[pr-acc-zip],
+[pr-acc-phone],
+[pr-acc-fax],
+[pr-acc-email],
+[pr-acc-url],
+CREATED,
+[LAST-UPDATED])
+select [p-id],
+[p-acc-id],
+[p-acc-role],
+[p-acc-role-code],
+[p-acc-cont-id],
+[p-acc-name],
+[p-acc-contact],
+[p-acc-addr1],
+[p-acc-addr2],
+[p-acc-county],
+[p-acc-state],
+[p-acc-country],
+[p-acc-zip],
+[p-acc-phone],
+[p-acc-fax],
+[p-acc-email],
+[p-acc-url],
+getdate(),
+getdate() from [ACC_TEMP] where [ROW-STAT]='Insert'
+
+GO
+
+/*update dodge Accounts*/
+
+UPDATE [ACC_DETAILS] set [pr-acc-id]=[p-acc-id],
+[pr-acc-role]=[p-acc-role],
+[pr-acc-role-code]=[p-acc-role-code],
+[pr-acc-cont-id]=[p-acc-cont-id],
+[pr-acc-name]=[p-acc-name],
+[pr-acc-contact]=[p-acc-contact],
+[pr-acc-addr1]=[p-acc-addr1],
+[pr-acc-addr2]=[p-acc-addr2],
+[pr-acc-county]=[p-acc-county],
+[pr-acc-state]=[p-acc-state],
+[pr-acc-country]=[p-acc-country],
+[pr-acc-zip]=[p-acc-zip],
+[pr-acc-phone]=[p-acc-phone],
+[pr-acc-fax]=[p-acc-fax],
+[pr-acc-email]=[p-acc-email],
+[pr-acc-url]=[p-acc-url],
+
+
+[LAST-UPDATED]=getdate()
+from [ACC_DETAILS] T1
+INNER JOIN [ACC_TEMP] T2 ON T2.[p-id]=T1.[pr-id] and T2.[ROW-STAT]='Update'
+
+
+GO
