@@ -1,169 +1,152 @@
 /*Name Of DB :[Dodge_Reportdb]
 File Group PRIMARY FOR TEMP TABLES[10 GB];SECONDARY FOR DETAIL TABLES[70GB];LOG FILES[20GB]*/
-
 USE [Dodge_Reportdb]
 GO
-/****** Object:  Table [dbo].[ACC_DETAILS]    Script Date: 04/01/2014 06:23:12 Create Table  On Secondary ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[ACC_DETAILS](
-                [pr-id] [nvarchar](255) NOT NULL,
-                [pr-acc-id] [nvarchar](255) NOT NULL,
-                [pr-acc-role] [nvarchar](255) NULL,
-                [pr-acc-role-code] [int] NOT NULL,
-                [pr-acc-cont-id] [nvarchar](255) NOT NULL,
-                [pr-acc-name] [nvarchar](255) NULL,
-                [pr-acc-contact] [nvarchar](255) NULL,
-                [pr-acc-addr1] [nvarchar](255) NULL,
-                [pr-acc-addr2] [nvarchar](255) NULL,
-                [pr-acc-county] [nvarchar](255) NULL,
-                [pr-acc-state] [nvarchar](255) NULL,
-                [pr-acc-country] [nvarchar](255) NULL,
-                [pr-acc-zip] [bigint] NULL,
-                [pr-acc-phone] [numeric](20, 0) NULL,
-                [pr-acc-fax] [nvarchar](255) NULL,
-                [pr-acc-email] [nvarchar](255) NULL,
-                [pr-acc-url] [nvarchar](255) NULL,
-                [pr-accounts_Id] [numeric](20, 0) NULL,
-                [CREATED] [datetime] NULL,
-                [LAST-UPDATED] [datetime] NULL,
- CONSTRAINT [prk_accID] PRIMARY KEY CLUSTERED
-(
-                [pr-id] ASC,
-                [pr-acc-id] ASC,
-                [pr-acc-role-code] ASC,
-                [pr-acc-cont-id] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [SECONDARY]
-) ON [SECONDARY]
-
-
- 
- 
-/******************************ACC_TEMP******************************/
-USE [Dodge_Reportdb]
-GO
-/****** Object:  Table [dbo].[ACC_TEMP]    Script Date: 04/01/2014 06:35:09 ******/
+/****** Object:  Table [dbo].[ACC_TEMP]    Script Date: 04/01/2014 07:06:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ACC_TEMP](
-                [p-id] [nvarchar](255) NOT NULL,
-                [p-acc-id] [nvarchar](255) NOT NULL,
-                [p-acc-role] [nvarchar](255) NULL,
-                [p-acc-role-code] [int] NOT NULL,
-                [p-acc-cont-id] [nvarchar](255) NOT NULL,
-                [p-acc-name] [nvarchar](255) NULL,
-                [p-acc-contact] [nvarchar](255) NULL,
-                [p-acc-addr1] [nvarchar](255) NULL,
-                [p-acc-addr2] [nvarchar](255) NULL,
-                [p-acc-county] [nvarchar](255) NULL,
-                [p-acc-state] [nvarchar](255) NULL,
-                [p-acc-country] [nvarchar](255) NULL,
-                [p-acc-zip] [bigint] NULL,
-                [p-acc-phone] [numeric](20, 0) NULL,
-                [p-acc-fax] [nvarchar](255) NULL,
-                [p-acc-email] [nvarchar](255) NULL,
-                [p-acc-url] [nvarchar](255) NULL,
-                [p-accounts_Id] [numeric](20, 0) NULL,
-                [ROW-STAT] [nchar](10) NULL,
+      [p-id] [nvarchar](255) NOT NULL,
+      [p-acc-id] [nvarchar](255) NOT NULL,
+      [p-acc-role] [nvarchar](255) NULL,
+      [p-acc-role-code] [int] NOT NULL,
+      [p-acc-cont-id] [nvarchar](255) NOT NULL,
+      [p-acc-name] [nvarchar](255) NULL,
+      [p-acc-contact] [nvarchar](255) NULL,
+      [p-acc-addr1] [nvarchar](255) NULL,
+      [p-acc-addr2] [nvarchar](255) NULL,
+      [p-acc-county] [nvarchar](255) NULL,
+      [p-acc-state] [nvarchar](255) NULL,
+      [p-acc-country] [nvarchar](255) NULL,
+      [p-acc-zip] [bigint] NULL,
+      [p-acc-phone] [numeric](20, 0) NULL,
+      [p-acc-fax] [nvarchar](255) NULL,
+      [p-acc-email] [nvarchar](255) NULL,
+      [p-acc-url] [nvarchar](255) NULL,
+      [p-accounts_Id] [numeric](20, 0) NULL,
+      [ROW-STAT] [nchar](10) NULL,
  CONSTRAINT [pk_accID] PRIMARY KEY CLUSTERED
 (
-                [p-id] ASC,
-                [p-acc-id] ASC,
-                [p-acc-role-code] ASC,
-                [p-acc-cont-id] ASC
+      [p-id] ASC,
+      [p-acc-id] ASC,
+      [p-acc-role-code] ASC,
+      [p-acc-cont-id] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [PRIMARY]
 ) ON [PRIMARY]
- 
- 
- 
-/***********************PROJ_TEMP*************************************/
-USE [Dodge_Reportdb]
 GO
-/****** Object:  Table [dbo].[PROJ_TEMP]    Script Date: 04/01/2014 06:36:06 ******/
+/****** Object:  Table [dbo].[PROJ_TEMP]    Script Date: 04/01/2014 07:06:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[PROJ_TEMP](
-                [project-temp_Id] [numeric](20, 0) NULL,
-                [p-id] [nvarchar](255) NOT NULL,
-                [p-ver] [tinyint] NULL,
-                [p-url] [nvarchar](255) NULL,
-                [p-first-publish-date] [datetime] NULL,
-                [p-publish-date] [datetime] NULL,
-                [p-prior-publish-date] [nvarchar](255) NULL,
-                [p-title] [nvarchar](255) NULL,
-                [p-addr-line1] [nvarchar](255) NULL,
-                [p-addr-line2] [nvarchar](255) NULL,
-                [p-county-name] [nvarchar](255) NULL,
-                [p-city-name] [nvarchar](255) NULL,
-                [p-state-id] [nvarchar](255) NULL,
-                [p-zip-code5] [nvarchar](255) NULL,
-                [p-country-id] [nvarchar](255) NULL,
-                [p-type] [nvarchar](255) NULL,
-                [p-action-stage] [nvarchar](255) NULL,
-                [p-delivery-system] [nvarchar](255) NULL,
-                [p-bid-date] [nvarchar](255) NULL,
-                [p-owner-class] [nvarchar](255) NULL,
-                [p-prj-status] [nvarchar](255) NULL,
-                [p-prj-status-deliver-system] [nvarchar](255) NULL,
-                [nbr-of-bldg] [nvarchar](255) NULL,
-                [nbr-of-story-ag] [nvarchar](255) NULL,
-                [p-text] [ntext] NULL,
-                [proj-notes] [ntext] NULL,
-                [ROW-STAT] [nchar](10) NULL,
+      [project-temp_Id] [numeric](20, 0) NULL,
+      [p-id] [nvarchar](255) NOT NULL,
+      [p-ver] [tinyint] NULL,
+      [p-url] [nvarchar](255) NULL,
+      [p-first-publish-date] [datetime] NULL,
+      [p-publish-date] [datetime] NULL,
+      [p-prior-publish-date] [nvarchar](255) NULL,
+      [p-title] [nvarchar](255) NULL,
+      [p-addr-line1] [nvarchar](255) NULL,
+      [p-addr-line2] [nvarchar](255) NULL,
+      [p-county-name] [nvarchar](255) NULL,
+      [p-city-name] [nvarchar](255) NULL,
+      [p-state-id] [nvarchar](255) NULL,
+      [p-zip-code5] [nvarchar](255) NULL,
+      [p-country-id] [nvarchar](255) NULL,
+      [p-type] [nvarchar](255) NULL,
+      [p-action-stage] [nvarchar](255) NULL,
+      [p-delivery-system] [nvarchar](255) NULL,
+      [p-bid-date] [nvarchar](255) NULL,
+      [p-owner-class] [nvarchar](255) NULL,
+      [p-prj-status] [nvarchar](255) NULL,
+      [p-prj-status-deliver-system] [nvarchar](255) NULL,
+      [nbr-of-bldg] [nvarchar](255) NULL,
+      [nbr-of-story-ag] [nvarchar](255) NULL,
+      [p-text] [ntext] NULL,
+      [proj-notes] [ntext] NULL,
+      [ROW-STAT] [nchar](10) NULL,
 PRIMARY KEY CLUSTERED
 (
-                [p-id] ASC
+      [p-id] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
- 
- 
-/*****************************PROJ_DETAILS***********************************/
- 
-USE [Dodge_Reportdb]
 GO
-/****** Object:  Table [dbo].[PROJ_DETAILS]    Script Date: 04/01/2014 06:44:47 ******/
+/****** Object:  Table [dbo].[ACC_DETAILS]    Script Date: 04/01/2014 07:06:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ACC_DETAILS](
+      [pr-id] [nvarchar](255) NOT NULL,
+      [pr-acc-id] [nvarchar](255) NOT NULL,
+      [pr-acc-role] [nvarchar](255) NULL,
+      [pr-acc-role-code] [int] NOT NULL,
+      [pr-acc-cont-id] [nvarchar](255) NOT NULL,
+      [pr-acc-name] [nvarchar](255) NULL,
+      [pr-acc-contact] [nvarchar](255) NULL,
+      [pr-acc-addr1] [nvarchar](255) NULL,
+      [pr-acc-addr2] [nvarchar](255) NULL,
+      [pr-acc-county] [nvarchar](255) NULL,
+      [pr-acc-state] [nvarchar](255) NULL,
+      [pr-acc-country] [nvarchar](255) NULL,
+      [pr-acc-zip] [bigint] NULL,
+      [pr-acc-phone] [numeric](20, 0) NULL,
+      [pr-acc-fax] [nvarchar](255) NULL,
+      [pr-acc-email] [nvarchar](255) NULL,
+      [pr-acc-url] [nvarchar](255) NULL,
+      [pr-accounts_Id] [numeric](20, 0) NULL,
+      [CREATED] [datetime] NULL,
+      [LAST-UPDATED] [datetime] NULL,
+ CONSTRAINT [prk_accID] PRIMARY KEY CLUSTERED
+(
+      [pr-id] ASC,
+      [pr-acc-id] ASC,
+      [pr-acc-role-code] ASC,
+      [pr-acc-cont-id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [SECONDARY]
+) ON [SECONDARY]
+GO
+/****** Object:  Table [dbo].[PROJ_DETAILS]    Script Date: 04/01/2014 07:06:34 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[PROJ_DETAILS](
-                [project-temp_Id] [numeric](20, 0) NULL,
-                [pr-id] [nvarchar](255) NOT NULL,
-                [pr-ver] [tinyint] NULL,
-                [pr-url] [nvarchar](255) NULL,
-                [pr-first-publish-date] [datetime] NULL,
-                [pr-publish-date] [datetime] NULL,
-                [pr-prior-publish-date] [nvarchar](255) NULL,
-                [pr-title] [nvarchar](255) NULL,
-                [pr-addr-line1] [nvarchar](255) NULL,
-                [pr-addr-line2] [nvarchar](255) NULL,
-                [pr-county-name] [nvarchar](255) NULL,
-                [pr-city-name] [nvarchar](255) NULL,
-                [pr-state-id] [nvarchar](255) NULL,
-                [pr-zip-code5] [nvarchar](255) NULL,
-                [pr-country-id] [nvarchar](255) NULL,
-                [pr-type] [nvarchar](255) NULL,
-                [pr-action-stage] [nvarchar](255) NULL,
-                [pr-delivery-system] [nvarchar](255) NULL,
-                [pr-bid-date] [nvarchar](255) NULL,
-                [pr-owner-class] [nvarchar](255) NULL,
-                [pr-prj-status] [nvarchar](255) NULL,
-                [pr-prj-status-deliver-system] [nvarchar](255) NULL,
-                [nbr-of-bldg] [nvarchar](255) NULL,
-                [nbr-of-story-ag] [nvarchar](255) NULL,
-                [pr-text] [ntext] NULL,
-                [prroj-notes] [ntext] NULL,
-                [CREATED] [datetime] NULL,
-                [LAST-UPDATED] [datetime] NULL,
+      [project-temp_Id] [numeric](20, 0) NULL,
+      [pr-id] [nvarchar](255) NOT NULL,
+      [pr-ver] [tinyint] NULL,
+      [pr-url] [nvarchar](255) NULL,
+      [pr-first-publish-date] [datetime] NULL,
+      [pr-publish-date] [datetime] NULL,
+      [pr-prior-publish-date] [nvarchar](255) NULL,
+      [pr-title] [nvarchar](255) NULL,
+      [pr-addr-line1] [nvarchar](255) NULL,
+      [pr-addr-line2] [nvarchar](255) NULL,
+      [pr-county-name] [nvarchar](255) NULL,
+      [pr-city-name] [nvarchar](255) NULL,
+      [pr-state-id] [nvarchar](255) NULL,
+      [pr-zip-code5] [nvarchar](255) NULL,
+      [pr-country-id] [nvarchar](255) NULL,
+      [pr-type] [nvarchar](255) NULL,
+      [pr-action-stage] [nvarchar](255) NULL,
+      [pr-delivery-system] [nvarchar](255) NULL,
+      [pr-bid-date] [nvarchar](255) NULL,
+      [pr-owner-class] [nvarchar](255) NULL,
+      [pr-prj-status] [nvarchar](255) NULL,
+      [pr-prj-status-deliver-system] [nvarchar](255) NULL,
+      [nbr-of-bldg] [nvarchar](255) NULL,
+      [nbr-of-story-ag] [nvarchar](255) NULL,
+      [pr-text] [ntext] NULL,
+      [prroj-notes] [ntext] NULL,
+      [CREATED] [datetime] NULL,
+      [LAST-UPDATED] [datetime] NULL,
 PRIMARY KEY CLUSTERED
 (
-                [pr-id] ASC
+      [pr-id] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [SECONDARY]
 ) ON [SECONDARY] TEXTIMAGE_ON [SECONDARY]
- 
+GO
