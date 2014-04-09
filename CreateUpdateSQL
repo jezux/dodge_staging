@@ -94,7 +94,6 @@ GO
 /*update dodge projects*/
 
 UPDATE [PROJ_DETAILS] set 
-[pr-id]=[p-id],
 [pr-ver]=[p-ver],
 [pr-url]=[p-url],
 [pr-first-publish-date]=[p-first-publish-date],
@@ -172,10 +171,8 @@ GO
 
 /*update dodge Accounts*/
 
-UPDATE [ACC_DETAILS] set [pr-acc-id]=[p-acc-id],
+UPDATE [ACC_DETAILS] set 
 [pr-acc-role]=[p-acc-role],
-[pr-acc-role-code]=[p-acc-role-code],
-[pr-acc-cont-id]=[p-acc-cont-id],
 [pr-acc-name]=[p-acc-name],
 [pr-acc-contact]=[p-acc-contact],
 [pr-acc-addr1]=[p-acc-addr1],
@@ -188,8 +185,6 @@ UPDATE [ACC_DETAILS] set [pr-acc-id]=[p-acc-id],
 [pr-acc-fax]=[p-acc-fax],
 [pr-acc-email]=[p-acc-email],
 [pr-acc-url]=[p-acc-url],
-
-
 [LAST-UPDATED]=getdate()
 from [ACC_DETAILS] T1
 INNER JOIN [ACC_TEMP] T2 ON T2.[p-id]=T1.[pr-id] and T2.[ROW-STAT]='Update'
