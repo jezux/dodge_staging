@@ -1,4 +1,10 @@
 GO
+/*Deletes duplicates from Account_Temp table*/
+delete from ACC_TEMP where RowId not in
+(
+select max(RowId) from ACC_TEMP group by [p-id]+[p-acc-id]+[p-acc-role-code]+[p-acc-cont-id] 
+);
+GO
 
 /*update ROW-STAT statement*/
 update [PROJ_TEMP] set [ROW-STAT]='Update' from [PROJ_TEMP]
