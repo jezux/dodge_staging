@@ -187,7 +187,7 @@ UPDATE [ACC_DETAILS] set
 [pr-acc-url]=[p-acc-url],
 [LAST-UPDATED]=getdate()
 from [ACC_DETAILS] T1
-INNER JOIN [ACC_TEMP] T2 ON T2.[p-id]=T1.[pr-id] and T2.[ROW-STAT]='Update'
+INNER JOIN [ACC_TEMP] T2 ON T2.[p-id]=T1.[pr-id] and T2.[ROW-STAT]='Update' and T1.[pr-acc-id]=T2.[p-acc-id] and T1.[pr-acc-role-code]=T2.[p-acc-role-code] and T1.[pr-acc-cont-id]=T2.[p-acc-cont-id]
 
 
 GO
