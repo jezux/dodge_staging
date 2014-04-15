@@ -1,6 +1,6 @@
 USE [Dodge_Reports_DB]
 GO
-/****** Object:  Table [dbo].[PROJ_TEMP]    Script Date: 04/09/2014 07:26:17 ******/
+/****** Object:  Table [dbo].[PROJ_TEMP]    Script Date: 04/15/2014 03:17:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -21,7 +21,7 @@ CREATE TABLE [dbo].[PROJ_TEMP](
 	[p-state-id] [nvarchar](255) NULL,
 	[p-zip-code5] [nvarchar](255) NULL,
 	[p-country-id] [nvarchar](255) NULL,
-	[p-type] [nvarchar](255) NULL,
+	[p-type] [nvarchar](2000) NULL,
 	[p-action-stage] [nvarchar](255) NULL,
 	[p-delivery-system] [nvarchar](255) NULL,
 	[p-bid-date] [nvarchar](255) NULL,
@@ -39,7 +39,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PROJ_DETAILS]    Script Date: 04/09/2014 07:26:17 ******/
+/****** Object:  Table [dbo].[PROJ_DETAILS]    Script Date: 04/15/2014 03:17:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -60,7 +60,7 @@ CREATE TABLE [dbo].[PROJ_DETAILS](
 	[pr-state-id] [nvarchar](255) NULL,
 	[pr-zip-code5] [nvarchar](255) NULL,
 	[pr-country-id] [nvarchar](255) NULL,
-	[pr-type] [nvarchar](255) NULL,
+	[pr-type] [nvarchar](2000) NULL,
 	[pr-action-stage] [nvarchar](255) NULL,
 	[pr-delivery-system] [nvarchar](255) NULL,
 	[pr-bid-date] [nvarchar](255) NULL,
@@ -79,7 +79,39 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ACC_DETAILS]    Script Date: 04/09/2014 07:26:17 ******/
+/****** Object:  Table [dbo].[ACC_TEMP]    Script Date: 04/15/2014 03:17:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ACC_TEMP](
+	[RowId] [int] IDENTITY(1,1) NOT NULL,
+	[p-id] [nvarchar](100) NOT NULL,
+	[p-acc-id] [nvarchar](100) NOT NULL,
+	[p-acc-role] [nvarchar](255) NULL,
+	[p-acc-role-code] [nvarchar](100) NOT NULL,
+	[p-acc-cont-id] [nvarchar](100) NOT NULL,
+	[p-acc-name] [nvarchar](255) NULL,
+	[p-acc-contact] [nvarchar](255) NULL,
+	[p-acc-addr1] [nvarchar](255) NULL,
+	[p-acc-addr2] [nvarchar](255) NULL,
+	[p-acc-county] [nvarchar](255) NULL,
+	[p-acc-state] [nvarchar](255) NULL,
+	[p-acc-country] [nvarchar](255) NULL,
+	[p-acc-zip] [nvarchar](255) NULL,
+	[p-acc-phone] [nvarchar](255) NULL,
+	[p-acc-fax] [nvarchar](255) NULL,
+	[p-acc-email] [nvarchar](255) NULL,
+	[p-acc-url] [nvarchar](255) NULL,
+	[p-accounts_Id] [numeric](20, 0) NOT NULL,
+	[ROW-STAT] [nchar](10) NULL,
+ CONSTRAINT [PK_ACC_TEMP] PRIMARY KEY CLUSTERED 
+(
+	[RowId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ACC_DETAILS]    Script Date: 04/15/2014 03:17:19 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -111,38 +143,6 @@ CREATE TABLE [dbo].[ACC_DETAILS](
 	[pr-acc-id] ASC,
 	[pr-acc-role-code] ASC,
 	[pr-acc-cont-id] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[ACC_TEMP]    Script Date: 04/09/2014 07:26:17 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[ACC_TEMP](
-	[RowId] [int] IDENTITY(1,1) NOT NULL,
-	[p-id] [nvarchar](100) NOT NULL,
-	[p-acc-id] [nvarchar](100) NOT NULL,
-	[p-acc-role] [nvarchar](255) NULL,
-	[p-acc-role-code] [nvarchar](100) NOT NULL,
-	[p-acc-cont-id] [nvarchar](100) NOT NULL,
-	[p-acc-name] [nvarchar](255) NULL,
-	[p-acc-contact] [nvarchar](255) NULL,
-	[p-acc-addr1] [nvarchar](255) NULL,
-	[p-acc-addr2] [nvarchar](255) NULL,
-	[p-acc-county] [nvarchar](255) NULL,
-	[p-acc-state] [nvarchar](255) NULL,
-	[p-acc-country] [nvarchar](255) NULL,
-	[p-acc-zip] [nvarchar](255) NULL,
-	[p-acc-phone] [nvarchar](255) NULL,
-	[p-acc-fax] [nvarchar](255) NULL,
-	[p-acc-email] [nvarchar](255) NULL,
-	[p-acc-url] [nvarchar](255) NULL,
-	[p-accounts_Id] [numeric](20, 0) NOT NULL,
-	[ROW-STAT] [nchar](10) NULL,
- CONSTRAINT [PK_ACC_TEMP] PRIMARY KEY CLUSTERED 
-(
-	[RowId] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
