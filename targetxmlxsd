@@ -1,69 +1,80 @@
 <?xml version="1.0"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:element name="reports">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element minOccurs="0" maxOccurs="unbounded" name="project-temp">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element minOccurs="0" name="p-id" type="xs:string" />
-							<xs:element minOccurs="0" name="p-ver" type="xs:unsignedByte" />
-							<xs:element minOccurs="0" name="p-url" type="xs:string" />
-							<xs:element minOccurs="0" name="p-first-publish-date" type="xs:date" />
-							<xs:element minOccurs="0" name="p-publish-date" type="xs:date" />
-							<xs:element minOccurs="0" name="p-prior-publish-date" type="xs:string" />
-							<xs:element minOccurs="0" name="p-title" type="xs:string" />
-							<xs:element minOccurs="0" name="p-addr-line1" type="xs:string" />
-							<xs:element minOccurs="0" name="p-addr-line2" type="xs:string" />
-							<xs:element minOccurs="0" name="p-county-name" type="xs:string" />
-							<xs:element minOccurs="0" name="p-city-name" type="xs:string" />
-							<xs:element minOccurs="0" name="p-state-id" type="xs:string" />
-							<xs:element minOccurs="0" name="p-zip-code5" type="xs:string" />
-							<xs:element minOccurs="0" name="p-country-id" type="xs:string" />
-							<xs:element minOccurs="0" name="p-type" type="xs:string" />
-							<xs:element minOccurs="0" name="p-action-stage" type="xs:string" />
-							<xs:element minOccurs="0" name="p-delivery-system" type="xs:string" />
-							<xs:element minOccurs="0" name="p-bid-date" type="xs:string" />
-							<xs:element minOccurs="0" name="p-owner-class" type="xs:string" />
-							<xs:element minOccurs="0" name="p-prj-status" type="xs:string" />
-							<xs:element minOccurs="0" name="p-prj-status-deliver-system" type="xs:string" />
-							<xs:element minOccurs="0" name="nbr-of-bldg" type="xs:string" />
-							<xs:element minOccurs="0" name="nbr-of-story-ag" type="xs:string" />
-							<xs:element minOccurs="0" name="p-text" type="xs:string" />
-							<xs:element minOccurs="0" name="proj-notes" type="xs:string" />
-							<xs:element minOccurs="0" name="p-accounts">
-								<xs:complexType>
-									<xs:sequence minOccurs="0">
-										<xs:element minOccurs="0" maxOccurs="unbounded" name="p-account-details">
-											<xs:complexType>
-												<xs:sequence>
-													<xs:element minOccurs="0" name="p-id" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-id" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-role" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-role-code" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-cont-id" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-name" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-contact" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-addr1" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-addr2" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-county" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-state" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-country" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-zip" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-phone" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-fax" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-email" type="xs:string" />
-													<xs:element minOccurs="0" name="p-acc-url" type="xs:string" />
-												</xs:sequence>
-											</xs:complexType>
-										</xs:element>
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+  <xs:element name="reports">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="project-temp">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="p-id" type="xs:string" />
+              <xs:element minOccurs="0" name="p-ver" type="xs:unsignedByte" />
+              <xs:element minOccurs="0" name="p-url" type="xs:string" />
+              <xs:element minOccurs="0" name="p-first-publish-date" type="xs:date" />
+              <xs:element minOccurs="0" name="p-publish-date" type="xs:date" />
+              <xs:element minOccurs="0" name="p-prior-publish-date" type="xs:string" />
+              <xs:element minOccurs="0" name="p-title" type="xs:string" />
+              <xs:element minOccurs="0" name="p-addr-line1" type="xs:string" />
+              <xs:element minOccurs="0" name="p-addr-line2" type="xs:string" />
+              <xs:element minOccurs="0" name="p-county-name" type="xs:string" />
+              <xs:element minOccurs="0" name="p-city-name" type="xs:string" />
+              <xs:element minOccurs="0" name="p-state-id" type="xs:string" />
+              <xs:element minOccurs="0" name="p-zip-code5" type="xs:string" />
+              <xs:element minOccurs="0" name="p-country-id" type="xs:string" />
+              <xs:element minOccurs="0" name="p-type" type="xs:string" />
+              <xs:element minOccurs="0" name="p-action-stage" type="xs:string" />
+              <xs:element minOccurs="0" name="p-delivery-system" type="xs:string" />
+              <xs:element minOccurs="0" name="p-bid-date" type="xs:string" />
+              <xs:element minOccurs="0" name="p-owner-class" type="xs:string" />
+              <xs:element minOccurs="0" name="p-prj-status" type="xs:string" />
+              <xs:element minOccurs="0" name="p-prj-status-deliver-system" type="xs:string" />
+              <xs:element minOccurs="0" name="nbr-of-bldg" type="xs:string" />
+              <xs:element minOccurs="0" name="nbr-of-story-ag" type="xs:string" />
+              <xs:element minOccurs="0" name="p-text" type="xs:string" />
+              <xs:element minOccurs="0" name="proj-notes" type="xs:string" />
+              <xs:element minOccurs="0" name="p-rprt-type" type="xs:string" />
+              <xs:element minOccurs="0" name="p-dr-break-away-from" type="xs:string" />
+              <xs:element minOccurs="0" name="nbr-of-story-bg" type="xs:string" />
+              <xs:element minOccurs="0" name="p-framing" type="xs:string" />
+              <xs:element minOccurs="0" name="p-squarefootage" type="xs:string" />
+              <xs:element minOccurs="0" name="p-squarefootageuom" type="xs:string" />
+              <xs:element minOccurs="0" name="p-bid-submito" type="xs:string" />
+              <xs:element minOccurs="0" name="p-targetstartdate" type="xs:string" />
+              <xs:element minOccurs="0" name="p-targetfinishdate" type="xs:string" />
+              <xs:element minOccurs="0" name="p-valuation-currency" type="xs:string" />
+              <xs:element minOccurs="0" name="p-valuation" type="xs:string" />
+              <xs:element minOccurs="0" name="p-accounts">
+                <xs:complexType>
+                  <xs:sequence minOccurs="0">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="p-account-details">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="p-id" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-id" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-role" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-role-code" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-cont-id" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-name" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-contact" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-addr1" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-addr2" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-county" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-state" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-country" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-zip" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-phone" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-fax" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-email" type="xs:string" />
+                          <xs:element minOccurs="0" name="p-acc-url" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
