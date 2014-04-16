@@ -150,7 +150,7 @@
                   <xsl:for-each select="./data/project-contact-information/title-code/project-contact">
                      <xsl:variable name="Ckms_Site_Ind" select="./contact-information/ckms-process-ind" />
                      <xsl:variable name="Ckms_Cont_Ind" select="./contact-information/ckms-contact-process-ind" />
-                     <xsl:variable name="Cont_Role" select="./contact-information/s-contact-role" />
+                     <xsl:variable name="Cont_Role" select="./contact-role" />
                      <xsl:if test="$Ckms_Site_Ind = 'Y' and $Ckms_Cont_Ind = 'Y'">
                         <xsl:if test="not($Cont_Role = 'Electrical Engineer') and not($Cont_Role = 'Landscape Architect') and not($Cont_Role = 'Mechanical Engineer')">
                            <p-account-details>
@@ -164,7 +164,7 @@
                                  <xsl:value-of select="$Cont_Role" />
                               </p-acc-role>
                               <p-acc-role-code>
-                                 <xsl:value-of select="./contact-information/s-contact-role/@code" />
+                                 <xsl:value-of select="./contact-role/@code" />
                               </p-acc-role-code>
                               <p-acc-cont-id>
                                  <xsl:value-of select="./contact-information/ckms-contact-id" />
