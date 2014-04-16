@@ -1,6 +1,6 @@
 USE [Dodge_Reports_DB]
 GO
-/****** Object:  Table [dbo].[PROJ_TEMP]    Script Date: 04/15/2014 03:55:29 ******/
+/****** Object:  Table [dbo].[PROJ_TEMP]    Script Date: 04/16/2014 12:04:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32,14 +32,25 @@ CREATE TABLE [dbo].[PROJ_TEMP](
 	[nbr-of-story-ag] [nvarchar](255) NULL,
 	[p-text] [ntext] NULL,
 	[proj-notes] [ntext] NULL,
+	[p-rprt-type] [nvarchar](255) NULL,
+	[p-dr-break-away-from] [nvarchar](255) NULL,
+	[nbr-of-story-bg] [nvarchar](255) NULL,
+	[p-framing] [nvarchar](255) NULL,
+	[p-squarefootage] [nvarchar](255) NULL,
+	[p-squarefootageuom] [nvarchar](255) NULL,
+	[p-bid-submito] [nvarchar](255) NULL,
+	[p-targetstartdate] [nvarchar](255) NULL,
+	[p-targetfinishdate] [nvarchar](255) NULL,
+	[p-valuation-currency] [nvarchar](255) NULL,
+	[p-valuation] [nvarchar](255) NULL,
 	[ROW-STAT] [nchar](10) NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[p-id] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [PRIMARY]
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PROJ_DETAILS]    Script Date: 04/15/2014 03:55:29 ******/
+/****** Object:  Table [dbo].[PROJ_DETAILS]    Script Date: 04/16/2014 12:04:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -71,6 +82,19 @@ CREATE TABLE [dbo].[PROJ_DETAILS](
 	[nbr-of-story-ag] [nvarchar](255) NULL,
 	[pr-text] [ntext] NULL,
 	[prroj-notes] [ntext] NULL,
+	[pr-rprt-type] [nvarchar](255) NULL,
+	[pr-dr-break-away-from] [nvarchar](255) NULL,
+	[nbr-of-story-bg] [nvarchar](255) NULL,
+	[pr-framing] [nvarchar](255) NULL,
+	[pr-squarefootage] [nvarchar](255) NULL,
+	[pr-squarefootageuom] [nvarchar](255) NULL,
+	[pr-bid-submito] [nvarchar](255) NULL,
+	[pr-targetstartdate] [nvarchar](255) NULL,
+	[pr-targetfinishdate] [nvarchar](255) NULL,
+	[pr-valuation-currency] [nvarchar](255) NULL,
+	[pr-valuation] [nvarchar](255) NULL,
+	[pr-dodgeid] [nvarchar](255) NULL,
+	[pr-dodgebu] [nvarchar](10) NULL,
 	[CREATED] [datetime] NULL,
 	[LAST-UPDATED] [datetime] NULL,
 PRIMARY KEY CLUSTERED 
@@ -79,18 +103,18 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ACC_TEMP]    Script Date: 04/15/2014 03:55:29 ******/
+/****** Object:  Table [dbo].[ACC_TEMP]    Script Date: 04/16/2014 12:04:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ACC_TEMP](
 	[RowId] [int] IDENTITY(1,1) NOT NULL,
-	[p-id] [nvarchar](100) NOT NULL,
-	[p-acc-id] [nvarchar](100) NOT NULL,
+	[p-id] [nvarchar](100) NULL,
+	[p-acc-id] [nvarchar](100) NULL,
 	[p-acc-role] [nvarchar](255) NULL,
-	[p-acc-role-code] [nvarchar](100) NOT NULL,
-	[p-acc-cont-id] [nvarchar](100) NOT NULL,
+	[p-acc-role-code] [nvarchar](100) NULL,
+	[p-acc-cont-id] [nvarchar](100) NULL,
 	[p-acc-name] [nvarchar](255) NULL,
 	[p-acc-contact] [nvarchar](255) NULL,
 	[p-acc-addr1] [nvarchar](255) NULL,
@@ -105,13 +129,13 @@ CREATE TABLE [dbo].[ACC_TEMP](
 	[p-acc-url] [nvarchar](255) NULL,
 	[p-accounts_Id] [numeric](20, 0) NOT NULL,
 	[ROW-STAT] [nchar](10) NULL,
- CONSTRAINT [PK_ACC_TEMP] PRIMARY KEY CLUSTERED 
+PRIMARY KEY CLUSTERED 
 (
 	[RowId] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [PRIMARY]
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ACC_DETAILS]    Script Date: 04/15/2014 03:55:29 ******/
+/****** Object:  Table [dbo].[ACC_DETAILS]    Script Date: 04/16/2014 12:04:39 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -135,6 +159,8 @@ CREATE TABLE [dbo].[ACC_DETAILS](
 	[pr-acc-email] [nvarchar](255) NULL,
 	[pr-acc-url] [nvarchar](255) NULL,
 	[pr-accounts_Id] [numeric](20, 0) NULL,
+	[pr-dodgeid] [nvarchar](255) NULL,
+	[pr-dodgebu] [nvarchar](10) NULL,
 	[CREATED] [datetime] NULL,
 	[LAST-UPDATED] [datetime] NULL,
  CONSTRAINT [PK_ACC_DETAILS] PRIMARY KEY CLUSTERED 
