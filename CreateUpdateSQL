@@ -1,3 +1,8 @@
+
+GO
+/* Start with blank ROW_STAT*/
+update [PROJ_TEMP] set [ROW-STAT]='';
+update [ACC_TEMP] set [ROW-STAT]='';
 GO
 /*Deletes duplicates from Account_Temp table*/
 delete from ACC_TEMP where RowId not in
@@ -59,6 +64,19 @@ INSERT INTO [PROJ_DETAILS]([pr-id],
 [nbr-of-story-ag],
 [pr-text],
 [prroj-notes],
+[pr-rprt-type],
+[pr-dr-break-away-from],
+[nbr-of-story-bg],
+[pr-framing],
+[pr-squarefootage],
+[pr-squarefootageuom],
+[pr-bid-submito],
+[pr-targetstartdate],
+[pr-targetfinishdate],
+[pr-valuation-currency],
+[pr-valuation],
+[pr-dodgeid],
+[pr-dodgebu],
 CREATED,
 [LAST-UPDATED])
 select [p-id],
@@ -86,6 +104,19 @@ select [p-id],
 [nbr-of-story-ag],
 [p-text],
 [proj-notes],
+[p-rprt-type],
+[p-dr-break-away-from],
+[nbr-of-story-bg],
+[p-framing],
+[p-squarefootage],
+[p-squarefootageuom],
+[p-bid-submito],
+[p-targetstartdate],
+[p-targetfinishdate],
+[p-valuation-currency],
+[p-valuation],
+SUBSTRING([p-id],6,LEN([p-id])),
+SUBSTRING([p-id],3,2),
 getdate(),
 getdate() from [PROJ_TEMP] where [ROW-STAT]='Insert';
 
@@ -118,7 +149,17 @@ UPDATE [PROJ_DETAILS] set
 [nbr-of-story-ag]=T2.[nbr-of-story-ag],
 [pr-text]=[p-text],
 [prroj-notes]=[proj-notes],
-
+[pr-rprt-type]=[p-rprt-type],
+[pr-dr-break-away-from]=[p-dr-break-away-from],
+[nbr-of-story-bg]=T2.[nbr-of-story-bg],
+[pr-framing]=[p-framing],
+[pr-squarefootage]=[p-squarefootage],
+[pr-squarefootageuom]=[p-squarefootageuom],
+[pr-bid-submito]=[p-bid-submito],
+[pr-targetstartdate]=[p-targetstartdate],
+[pr-targetfinishdate]=[p-targetfinishdate],
+[pr-valuation-currency]=[p-valuation-currency],
+[pr-valuation]=[p-valuation],
 [LAST-UPDATED]=getdate()
 from [PROJ_DETAILS] T1
 INNER JOIN [PROJ_TEMP] T2 ON T2.[p-id]=T1.[pr-id] and T2.[ROW-STAT]='Update';
@@ -145,6 +186,8 @@ INSERT INTO [ACC_DETAILS]([pr-id],
 [pr-acc-fax],
 [pr-acc-email],
 [pr-acc-url],
+[pr-dodgeid],
+[pr-dodgebu],
 CREATED,
 [LAST-UPDATED])
 select [p-id],
@@ -164,6 +207,8 @@ select [p-id],
 [p-acc-fax],
 [p-acc-email],
 [p-acc-url],
+SUBSTRING([p-id],6,LEN([p-id])),
+SUBSTRING([p-id],3,2),
 getdate(),
 getdate() from [ACC_TEMP] where [ROW-STAT]='Insert'
 
