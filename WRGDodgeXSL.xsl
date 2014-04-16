@@ -68,12 +68,9 @@
                   <xsl:value-of select="./data/additional-details/title-code/proj-dlvry-sys" />
                </p-delivery-system>
                <p-bid-date>
-                  <xsl:if test="./data/bid-information/title-code/bid-date != ''">
-                     <xsl:value-of select="./data/bid-information/title-code/bid-date" />
-                     <xsl:text />
-                     <xsl:value-of select="./data/bid-information/title-code/bid-time" />
-                     <xsl:text />
-                     <xsl:value-of select="./data/bid-information/title-code/bid-zone" />
+               <xsl:variable name="p_bid_dt" select="./data/bid-information/title-code/bid-date" />
+                  <xsl:if test="$p_bid_dt != ''">
+                     <xsl:value-of select="concat(substring($p_bid_dt,1,4),'-',substring($p_bid_dt,5,2),'-',substring($p_bid_dt,7,2))" />
                   </xsl:if>
                </p-bid-date>
                <p-owner-class>
@@ -99,6 +96,56 @@
                   <xsl:comment>Concatenate Project Notes</xsl:comment>
                   <xsl:value-of select="./data/project-notes/proj-notes/title-code" />
                </proj-notes>
+               <p-rprt-type>
+               <xsl:value-of select="./summary/report-type" />
+               </p-rprt-type>
+               <p-dr-break-away-from>
+               <xsl:value-of select="./data/additional-details/title-code/dr-break-away-from" />
+               </p-dr-break-away-from>
+               <nbr-of-story-bg>
+                  <xsl:value-of select="./data/details/structural-data/title-code/nbr-of-story-bg" />
+               </nbr-of-story-bg>
+               <p-framing>
+                <xsl:value-of select="./data/details/structural-data/title-code/framing" />
+               </p-framing>
+               <p-squarefootage>
+               <xsl:value-of select="./data/details/structural-data/title-code/square-footage" />
+               </p-squarefootage>
+               <p-squarefootageuom>
+               <xsl:value-of select="./data/details/structural-data/title-code/square-footage-uom" />
+               </p-squarefootageuom>
+               <p-bid-submito>
+               <xsl:value-of select="./data/bid-information/title-code/bid-submit-to" />
+               </p-bid-submito>
+               <p-targetstartdate>
+               <xsl:variable name="p_trgtstrt_dt" select="./data/additional-details/title-code/target-start-date" />
+               <xsl:if test="$p_trgtstrt_dt != ''">
+               <xsl:value-of select="concat(substring($p_trgtstrt_dt,1,4),'-',substring($p_trgtstrt_dt,5,2),'-',substring($p_trgtstrt_dt,7,2))" />
+               </xsl:if>
+               </p-targetstartdate>
+               <p-targetfinishdate>
+               <xsl:variable name="p_trgtfnsh_dt" select="./data/additional-details/title-code/target-finish-date" />
+               <xsl:if test="$p_trgtfnsh_dt != ''">
+               <xsl:value-of select="concat(substring($p_trgtfnsh_dt,1,4),'-',substring($p_trgtfnsh_dt,5,2),'-',substring($p_trgtfnsh_dt,7,2))" />
+               </xsl:if>
+               </p-targetfinishdate>
+               <p-valuation-currency>
+               <xsl:value-of select="./data/project-valuation/title-code/currency-type" />
+               </p-valuation-currency>
+               
+               <p-valuation>
+               <xsl:variable name="p_lowval" select="./data/project-valuation/title-code/est-low" />
+               <xsl:variable name="p_highval" select="./data/project-valuation/title-code/est-high" />
+               <xsl:choose>
+               <xsl:when test="$p_highval != ''">
+               <xsl:value-of select="$p_highval" />
+               </xsl:when>
+               <xsl:otherwise>
+               <xsl:value-of select="$p_lowval" />
+               </xsl:otherwise>
+               </xsl:choose>
+               </p-valuation>
+               
                <p-accounts>
                   <xsl:for-each select="./data/project-contact-information/title-code/project-contact">
                      <xsl:variable name="Ckms_Site_Ind" select="./contact-information/ckms-process-ind" />
@@ -170,3 +217,4 @@
       </reports>
    </xsl:template>
 </xsl:stylesheet>
+
