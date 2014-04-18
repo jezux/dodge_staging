@@ -1,3 +1,4 @@
+
 GO
 /* Start with blank ROW_STAT*/
 update [PROJ_TEMP] set [ROW-STAT]='';
@@ -9,6 +10,44 @@ delete from ACC_TEMP where RowId not in
 select max(RowId) from ACC_TEMP group by [p-id]+[p-acc-id]+[p-acc-role-code]+[p-acc-cont-id] 
 );
 GO
+/*letter coded valuation transformation*/
+
+update PROJ_TEMP set [p-valuation] = CASE 
+WHEN [p-valuation]='A' THEN '99999'
+WHEN [p-valuation]='B' THEN '199999'
+WHEN [p-valuation]='C' THEN '299999'
+WHEN [p-valuation]='D' THEN '399999'
+WHEN [p-valuation]='E' THEN '499999'
+WHEN [p-valuation]='F' THEN '749999'
+WHEN [p-valuation]='G' THEN '999999'
+WHEN [p-valuation]='H' THEN '2999999'
+WHEN [p-valuation]='I' THEN '4999999'
+WHEN [p-valuation]='J' THEN '9999999'
+WHEN [p-valuation]='K' THEN '14999999'
+WHEN [p-valuation]='L' THEN '24999999'
+WHEN [p-valuation]='M' THEN '49999999'
+WHEN [p-valuation]='N' THEN '999999999999999'
+ELSE [p-valuation]
+END 
+where [p-valuation] in
+(
+'A',
+'B',
+'C',
+'D',
+'E',
+'F',
+'G',
+'H',
+'I',
+'J',
+'K',
+'L',
+'M',
+'N')
+
+GO
+
 
 /*update ROW-STAT statement*/
 update [PROJ_TEMP] set [ROW-STAT]='Update' from [PROJ_TEMP]
@@ -235,4 +274,3 @@ INNER JOIN [ACC_TEMP] T2 ON T2.[p-id]=T1.[pr-id] and T2.[ROW-STAT]='Update' and 
 
 
 GO
-/**/
