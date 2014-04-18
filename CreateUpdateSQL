@@ -1,4 +1,3 @@
-
 GO
 /* Start with blank ROW_STAT*/
 update [PROJ_TEMP] set [ROW-STAT]='';
@@ -236,3 +235,4 @@ INNER JOIN [ACC_TEMP] T2 ON T2.[p-id]=T1.[pr-id] and T2.[ROW-STAT]='Update' and 
 
 
 GO
+/**/
