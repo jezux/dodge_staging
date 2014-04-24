@@ -1,11 +1,12 @@
 USE [Dodge_Reports_DB]
 GO
-/****** Object:  Table [dbo].[PROJ_TEMP]    Script Date: 04/16/2014 12:04:39 ******/
+/****** Object:  Table [dbo].[PROJ_TEMP]    Script Date: 04/24/2014 08:14:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[PROJ_TEMP](
+	[RowId] [int] IDENTITY(1,1) NOT NULL,
 	[project-temp_Id] [numeric](20, 0) NULL,
 	[p-id] [nvarchar](255) NOT NULL,
 	[p-ver] [tinyint] NULL,
@@ -46,11 +47,11 @@ CREATE TABLE [dbo].[PROJ_TEMP](
 	[ROW-STAT] [nchar](10) NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[p-id] ASC
+	[RowId] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PROJ_DETAILS]    Script Date: 04/16/2014 12:04:39 ******/
+/****** Object:  Table [dbo].[PROJ_DETAILS]    Script Date: 04/24/2014 08:14:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -103,7 +104,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON, FILLFACTOR = 90) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ACC_TEMP]    Script Date: 04/16/2014 12:04:39 ******/
+/****** Object:  Table [dbo].[ACC_TEMP]    Script Date: 04/24/2014 08:14:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -135,7 +136,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ACC_DETAILS]    Script Date: 04/16/2014 12:04:39 ******/
+/****** Object:  Table [dbo].[ACC_DETAILS]    Script Date: 04/24/2014 08:14:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
