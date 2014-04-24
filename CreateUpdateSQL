@@ -4,6 +4,12 @@ GO
 update [PROJ_TEMP] set [ROW-STAT]='';
 update [ACC_TEMP] set [ROW-STAT]='';
 GO
+/* Code to delete duplicate in Project Table*/
+delete from PROJ_TEMP where RowId not in
+(
+select max(RowId) from PROJ_TEMP group by [p-id]
+);
+GO
 /*Deletes duplicates from Account_Temp table*/
 delete from ACC_TEMP where RowId not in
 (
