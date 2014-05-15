@@ -122,7 +122,8 @@ INSERT INTO [PROJ_DETAILS]([pr-id],
 [pr-dodgeid],
 [pr-dodgebu],
 CREATED,
-[LAST-UPDATED])
+[LAST-UPDATED],
+[pr-work-type])
 select [p-id],
 [p-ver],
 [p-url],
@@ -162,7 +163,8 @@ select [p-id],
 SUBSTRING([p-id],6,LEN([p-id])),
 SUBSTRING([p-id],3,2),
 getdate(),
-getdate() from [PROJ_TEMP] where [ROW-STAT]='Insert';
+getdate(),
+[p-work-type] from [PROJ_TEMP] where [ROW-STAT]='Insert';
 
 GO
 
@@ -204,7 +206,8 @@ UPDATE [PROJ_DETAILS] set
 [pr-targetfinishdate]=[p-targetfinishdate],
 [pr-valuation-currency]=[p-valuation-currency],
 [pr-valuation]=[p-valuation],
-[LAST-UPDATED]=getdate()
+[LAST-UPDATED]=getdate(),
+[pr-work-type]=[pr-work-type]
 from [PROJ_DETAILS] T1
 INNER JOIN [PROJ_TEMP] T2 ON T2.[p-id]=T1.[pr-id] and T2.[ROW-STAT]='Update';
 
