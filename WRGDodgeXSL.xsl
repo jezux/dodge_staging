@@ -145,7 +145,9 @@
 							</xsl:otherwise>
 						</xsl:choose>
 					</p-valuation>
-
+	                                <p-work-type>
+	                                <xsl:value-of select="./data/project-work-type/title-code/work-type" />
+					</p-work-type>
 					<p-accounts>
 						<xsl:for-each select="./data/project-contact-information/title-code/project-contact">
 							<xsl:variable name="Ckms_Site_Ind" select="./contact-information/ckms-process-ind" />
