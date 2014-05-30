@@ -53,7 +53,16 @@ where [p-valuation] in
 'N')
 
 GO
+/*Standardise time to 8 AM on Project Temp:Fix time zone bug*/
+update PROJ_TEMP set 
+[p-first-publish-date]= dateadd(hh,8,DATEADD(dd, DATEDIFF(dd, 0, [p-first-publish-date]), 0))
+,[p-publish-date] = convert(varchar(255),[p-publish-date]+' 08:00:00.000',121)
+,[p-prior-publish-date] = convert(varchar(255),[p-prior-publish-date]+' 08:00:00.000',121)
+,[p-bid-date] = convert(varchar(255),[p-bid-date]+' 08:00:00.000',121)
+,[p-targetstartdate] = convert(varchar(255),[p-targetstartdate]+' 08:00:00.000',121)
+,[p-targetfinishdate] = convert(varchar(255),[p-targetfinishdate]+' 08:00:00.000',121)
 
+GO
 
 /*update ROW-STAT statement*/
 update [PROJ_TEMP] set [ROW-STAT]='Update' from [PROJ_TEMP]
@@ -207,7 +216,7 @@ UPDATE [PROJ_DETAILS] set
 [pr-valuation-currency]=[p-valuation-currency],
 [pr-valuation]=[p-valuation],
 [LAST-UPDATED]=getdate(),
-[pr-work-type]=[pr-work-type]
+[pr-work-type]=[p-work-type]
 from [PROJ_DETAILS] T1
 INNER JOIN [PROJ_TEMP] T2 ON T2.[p-id]=T1.[pr-id] and T2.[ROW-STAT]='Update';
 
